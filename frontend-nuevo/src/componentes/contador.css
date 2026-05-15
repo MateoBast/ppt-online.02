@@ -1,0 +1,27 @@
+.contador {
+  margin-top: -250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; /* Ajusta según necesites */
+}
+
+.circulo {
+  width: 200px;
+  height: 200px;
+  border: 18px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: transparent; /* Cambia a transparente */
+}
+
+.numero {
+  font-family: 'American Typewriter', serif;
+  font-size: 88px; /* Tamaño del número */
+  font-weight: bold; /* Negrita */
+  color: black; /* Color del número */
+  position: absolute; /* Para centrar el número */
+}

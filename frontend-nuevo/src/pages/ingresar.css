@@ -1,0 +1,88 @@
+body{
+    margin: 0;
+}
+.contenedor-ingresar{
+    background-image: url('../imagenes/fondo.png'); /* Cambia esto por la ruta de tu imagen */
+  background-size: auto; /* Mantiene el tamaño original de la imagen */
+  background-repeat: repeat; /* Hace que la imagen se repita */
+  background-position: top left; /* Posiciona la imagen en la esquina superior izquierda */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+
+}
+.contenedor-titulo-ingresar{
+    width: 300px;
+    height: 280px;
+    margin-bottom: 40px;
+    
+}    
+.tijera,.papel,.piedra{
+  width: 80;
+  height: 120px;
+}
+.inputIngresar::placeholder {
+  text-align: center;
+  color: #9E9E9E; /* color gris claro */
+  font-family: 'Courier New', monospace; /* fuente tipo máquina */
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.contenedorBotonesIngresar{
+  margin-top: 25px;
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+.titulo1-ingresar ,.titulo2-ingresar,.titulo3-ingresar{
+font-family: 'American Typewriter', serif;
+  font-size: 90px; /* Tamaño del texto */
+  font-weight: 600;
+  margin: 0;
+  height: 100px;
+  color: #009048;
+}
+.inputIngresar{
+  margin-top: 15px;
+  width: 300px;        /* Ancho */
+  height: 84px;        /* Altura */
+  border-radius: 10px; /* Radio */
+  border: 10px solid #182460; /* Borde */
+  background-color: #FFFFFF;  /* Color de fondo */
+  padding: 0 10px;     /* Para que el texto no quede pegado al borde */
+  box-sizing: border-box; /* Para que el tamaño incluya el borde */
+  font-size: 28px;     /* Tamaño del texto que escribís */
+}
+
+.boton-ingresar{
+  width: 300px;
+  height: 75px;
+  margin-top: 30px;
+}
+@media (min-width: 1220px) {
+
+   .titulo1-ingresar,.titulo2-ingresar,.titulo3-ingresar{
+    font-size: 90px;
+   }
+   .inputIngresar{
+    width: 340px;
+   }
+   .tijera,.papel,.piedra{
+  width: 100px;
+  height:180px;
+}
+
+    .contenedorBotonesIngresar{
+      margin-top: 20px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }

@@ -1,0 +1,34 @@
+.crearSalaBoton {
+margin-top: 30px;
+  display: inline-block;
+  color: white !important; /* Que el texto se vea */
+  background-color: #006CFC;
+  border: solid 10px #001997;
+  border-radius: 25px;
+  font-family: 'Odibee Sans', cursive;
+  font-size: 23px;
+  text-decoration: none; /* Quita subrayado */
+  cursor: pointer;
+  width: 230px;
+  text-align: center; /* Que el texto quede centrado */
+  width: 310px;
+  height: 70px;
+}
+.crearSalaInput{
+      height: 30px;
+    font-family: 'Odibee Sans', sans-serif; /* Fuente */
+  font-weight: 600; /* Peso más grueso */
+  font-size: 24px; /* Tamaño */
+  line-height: 100%; /* Altura de la línea */
+  text-align: center; /* Alineación horizontal */
+  border: solid,5px,#182460;
+    border-radius: 5px;
+    width: 300px;
+
+}
+.contenedorCrearSala{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

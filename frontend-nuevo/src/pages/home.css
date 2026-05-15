@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+}
+.contenedor-home{
+    background-image: url('../imagenes/fondo.png'); /* Cambia esto por la ruta de tu imagen */
+  background-size: auto; /* Mantiene el tamaño original de la imagen */
+  background-repeat: repeat; /* Hace que la imagen se repita */
+  background-position: top left; /* Posiciona la imagen en la esquina superior izquierda */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+
+}
+.contenedor-titulo{
+    width: 300px;
+    height: 280px;
+    margin-bottom: 40px;
+    
+}    
+
+.contenedorBotones{
+  margin-top: 60px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+.titulo1 ,.titulo2,.titulo3{
+font-family: 'American Typewriter', serif;
+  font-size: 90px; /* Tamaño del texto */
+  font-weight: 600;
+  margin: 0;
+  height: 100px;
+  color: #009048;
+}
+.boton{
+  height: 50px;
+  font-size: 25px;
+  margin-top: 20px;
+}
+.piedra{
+      width: 90px;
+      height:140px;
+    }
+.papel{
+      width: 90px;
+      height: 140px;
+    }
+.tijera{
+      width: 90px;
+      height: 140px;
+    }
+
+
+  @media (min-width: 1220px) {
+  .boton{
+    font-size: 33px;
+    height: 60px;
+    width: 300px;
+    margin-top:20px;
+    padding: 5px;
+  }
+
+   .titulo1,.titulo2,.titulo3{
+    font-size: 90px;
+   }
+   .contenedor-home .piedra{
+      width: 100px;
+      height:180px;
+    }
+    .contenedor-home .papel{
+      width: 100px;
+      height: 180px;
+    }
+    .contenedor-home .tijera{
+      width: 100px;
+      height: 180px;
+    }
+
+    .contenedorBotones{
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }

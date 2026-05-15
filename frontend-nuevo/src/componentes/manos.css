@@ -1,0 +1,30 @@
+.contenedor-manos {
+  display: flex; /* Sin comillas */
+  justify-content: center;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+}
+.piedra{
+    width: 70px;
+    height: 125px;
+    margin-right: 20px;
+}
+.papel{
+    width: 70px;
+    height: 125px;
+    margin-right: 20px;
+}
+.tijera{
+    width: 70px;
+    height: 125px;
+}
+@media (min-width: 900px) {
+.piedra,.papel,.tijera{
+    width: 90px;
+    height: 180px;
+    }
+    .piedra,.papel{
+        margin-right: 40px;
+    } 
+}

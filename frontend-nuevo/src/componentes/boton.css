@@ -1,0 +1,24 @@
+.boton {
+  position: relative; /* Para que z-index funcione */
+  z-index: 10; /* Que esté por encima */
+  display: inline-block;
+  color: white !important; /* Que el texto se vea */
+  background-color: #006CFC;
+  padding: 10px 20px;
+  border: solid 15px #001997;
+  border-radius: 25px;
+  font-family: 'Odibee Sans', cursive;
+  font-size: 40px;
+  text-decoration: none; /* Quita subrayado */
+  cursor: pointer;
+  width: 230px;
+  text-align: center; /* Que el texto quede centrado */
+
+}
+
+@media (min-width: 900px) {
+.boton{
+  width: 300px;
+  height: 80px;
+}
+}

@@ -1,0 +1,75 @@
+
+.contenedor-prejuego{
+    background-image: url('../imagenes/fondo.png'); /* Cambia esto por la ruta de tu imagen */
+  background-size: auto; /* Mantiene el tamaño original de la imagen */
+  background-repeat: repeat; /* Hace que la imagen se repita */
+  background-position: top left; /* Posiciona la imagen en la esquina superior izquierda */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+
+}
+.contenedor-titulo-prejuego{
+    width: 300px;
+    height: 280px;
+    margin-bottom: 40px;   
+} 
+
+.titulo1-pre ,.titulo2-pre,.titulo3-pre{
+font-family: 'American Typewriter', serif;
+  font-size: 90px; /* Tamaño del texto */
+  font-weight: 600;
+  margin: 0;
+  height: 100px;
+  color: #009048;
+}
+.labelPrejuego {
+  margin-top: 30px;
+  margin-bottom: 5px;
+  font-family: 'Odibee Sans', sans-serif; /* Fuente */
+  font-weight: 600; /* Peso más grueso */
+  font-size: 24px; /* Tamaño */
+  line-height: 100%; /* Altura de la línea */
+  text-align: center; /* Alineación horizontal */
+
+}
+.inputPrejuego{
+  width: 300px;        /* Ancho */
+  height: 84px;        /* Altura */
+  border-radius: 10px; /* Radio */
+  border: 10px solid #182460; /* Borde */
+  background-color: #FFFFFF;  /* Color de fondo */
+  padding: 0 10px;     /* Para que el texto no quede pegado al borde */
+  box-sizing: border-box; /* Para que el tamaño incluya el borde */
+  font-size: 28px;     /* Tamaño del texto que escribís */
+}
+
+
+@media (min-width: 1220px) {
+
+   .titulo1-pre,.titulo2-pre,.titulo3-pre{
+    font-size: 90px;
+   }
+   .inputPrejuego{
+    width: 340px;
+   }
+
+
+    .contenedorBotonesPrejuego{
+      margin-top: 20px;
+      height: 210px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .labelPrejuego {
+  font-family: 'Odibee Sans', sans-serif; /* Fuente */
+  font-weight: 600; /* Peso más grueso */
+  font-size: 33px; /* Tamaño */
+  line-height: 100%; /* Altura de la línea */
+  text-align: center; /* Alineación horizontal */
+}
+
+  }

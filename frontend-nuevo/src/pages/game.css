@@ -1,0 +1,33 @@
+.contenedor-game {
+  background-image: url('../imagenes/fondo.png');
+  background-size: auto;
+  background-repeat: repeat;
+  background-position: top left;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center; /* centra verticalmente */
+  align-items: center; /* centra horizontalmente */
+}
+
+.contenido-central {
+  display: flex;
+  flex-direction: column; /* apila los elementos verticalmente */
+  align-items: center; /* centra horizontalmente */
+  gap: 20px; /* espacio entre el contador y las manos */
+}
+.mano{
+  width: 100px; /* Ajusta el tamaño según necesites */
+  height: auto; /* Mantiene la proporción de la imagen */
+  transition: opacity 0.3s; /* Transición suave al cambiar la opacidad */
+}
+
+.mano.seleccionada {
+  opacity: 1;
+  transform: scale(1.1);
+  height: 270px;
+}
+
+.mano.no-seleccionada {
+  opacity: 0.5; /* Transparencia para no seleccionadas */
+}

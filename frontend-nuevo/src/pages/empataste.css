@@ -1,0 +1,62 @@
+  .contenedor-duelo-emp{
+  height: 100vh; /* ocupar toda la altura de la ventana */
+  position: relative; /* para el overlay */
+   overflow: hidden; /* bloquea el scroll */
+  height: 100vh; /* para que ocupe toda la pantalla */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.overlay-amarillo-emp{
+  position: absolute; /* o fixed, según convenga */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f0e68cc2;; /* verde transparente */
+  z-index: 1; /* está atrás */
+}
+
+.titulo-emp{
+  font-family: 'Roboto', sans-serif; /* Cambia esto por la fuente que elegiste */
+  position: relative; /* o absolute si querés */
+  z-index: 10; /* alto para que quede arriba */
+  top: 20px; /* ajustá para separarlo del borde */
+  text-align: center;
+  font-size: 60px;
+}
+
+.score-emp{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  flex-direction: column;
+  width: 300px;
+  height: 250px;
+  position: relative; /* para que z-index funcione */
+  z-index: 2; /* está arriba del overlay */
+  background-color: rgba(255, 255, 255, 0.8); /* ejemplo de fondo para que se vea */
+  border: solid,4px,black;
+  border-radius: 5px;
+}
+
+.score-titulo{
+     font-weight: 700;
+      font-family: 'Roboto', sans-serif; /* Cambia esto por la fuente que elegiste */
+font-size: 40px;
+}
+.score-player{
+    font-family: 'Roboto', sans-serif; /* Cambia esto por la fuente que elegiste */
+    font-size: 30px;
+    font-weight: 700;
+}
+.boton-emp{
+    width: 300px;
+    height: 75px;
+}

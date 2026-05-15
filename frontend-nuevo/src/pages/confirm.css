@@ -1,0 +1,70 @@
+.contenedor-confirm{
+    background-image: url('../imagenes/fondo.png'); /* Cambia esto por la ruta de tu imagen */
+  background-size: auto; /* Mantiene el tamaño original de la imagen */
+  background-repeat: repeat; /* Hace que la imagen se repita */
+  background-position: top left; /* Posiciona la imagen en la esquina superior izquierda */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+}
+.contenedor-confirm {
+  padding: 20px;
+  text-align: center;
+}
+
+.estado-confirm {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.Header-confirm {
+  width: 100%;
+  display: flex; /* Usamos flexbox para alinear */
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Alineamos verticalmente */
+  margin-bottom: 1rem; /* Espacio inferior si es necesario */
+  margin: 0;
+  padding: 0;
+}
+.texto-confrim{
+  font-size: 40px;
+    font-family: 'Arial', sans-serif; /* Cambia 'Arial' por la fuente que desees */
+}
+.nombre-confirm,.id-confirm{
+  font-size: 25px;
+  font-family: 'Arial', sans-serif; /* Cambia 'Arial' por la fuente que desees */
+    font-weight: 800; /* 700 es negrita */
+
+}
+.contenedorTexto-confrim{
+  margin-top: -60px;
+  margin-bottom: 20px;
+  width: 300px;
+  padding: 0;
+  height: 300px;
+}
+.boton-confirm {
+  height: 100px;
+}
+
+@media (max-width: 1242px) {
+  .texto-confrim{
+    font-size: 40px;
+    font-weight: 600; /* 700 es negrita */
+  }
+  .contenedorTexto-confrim{
+    height: 250px;
+    margin-top: -20px;
+    margin-bottom: 0;
+  }
+  .boton-confirm {
+  margin-top: 80px;
+  width: 300px;
+  height: 80px;
+}
+
+
+
+}

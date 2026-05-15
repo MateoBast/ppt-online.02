@@ -1,0 +1,74 @@
+body, html {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.contenedor-nombreRoom {
+        background-image: url('../imagenes/fondo.png'); /* Cambia esto por la ruta de tu imagen */
+  background-size: auto; /* Mantiene el tamaño original de la imagen */
+  background-repeat: repeat; /* Hace que la imagen se repita */
+  background-position: top left; /* Posiciona la imagen en la esquina superior izquierda */
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente */
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 20px;
+  background-color: #f0f0f0; /* Fondo claro */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jugadores {
+  text-align: left;
+}
+
+.jugador {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+.codigo-sala {
+    font-size: 25px;
+font-family: 'American Typewriter', serif;
+  text-align: right;
+  font-weight: 700;
+
+}
+
+.codigo {
+font-family: 'American Typewriter', serif;
+font-weight: 700;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #000000; /* Color destacado para el código */
+  letter-spacing: 0.3em;
+}
+
+h1 {
+    padding: 0;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 60px;
+    font-family: 'American Typewriter', serif;
+  color: #000000; /* Color del título */
+}
+
+.titulo-nomRoom{
+  margin-top: 60px;
+    font-size: 40px;
+    font-family: 'American Typewriter', serif;
+  color: #000000; /* Color del subtítulo */
+  font-weight: 1000;
+}
