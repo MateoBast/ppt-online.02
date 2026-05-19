@@ -19,47 +19,57 @@ const Game = () => {
     roundProcessed.current = false;
   }, [roomId]);
 
-  useEffect(() => {
-    const roomRef = ref(database, `rooms/${roomId}`);
+const navigated = useRef(false);
 
-    const unsubscribe = onValue(roomRef, (snapshot) => {
-      const roomData = snapshot.val();
-      if (!roomData) return;
+useEffect(() => {
+  
+  const roomRef = ref(database, `rooms/${roomId}`); // Asegúrate de usar las comillas invertidas
 
-      setPlayers(roomData.players);
-      setScore(roomData.score);
+  const unsubscribe = onValue(roomRef, (snapshot) => {
+    const roomData = snapshot.val();
+    console.log("Datos recibidos en onValue:", roomData);
+    console.log("playerKey actual:", playerKey);
+    if (!roomData) return;
 
-      if (roomData.roundFinished) {
-        const winnerKey = roomData.winnerKey;
-        const loserKey = roomData.loserKey;
+    setPlayers(roomData.players);
+    setScore(roomData.score);
 
-        if (winnerKey === null && loserKey === null) {
-          // Empate
-          navigate(`/empataste/${roomId}`, { state: { players: roomData.players, score: roomData.score } });
-        } else {
-          const winner = roomData.players[winnerKey];
-          const loser = roomData.players[loserKey];
+    if (roomData.roundFinished && !navigated.current) {
+      navigated.current = true;
 
-          if (playerKey === winnerKey) {
-            navigate(`/ganaste/${roomId}`, { state: { winner, loser, winnerKey, loserKey, score: roomData.score } });
-          } else if (playerKey === loserKey) {
-            navigate(`/perdiste/${roomId}`, { state: { winner, loser, winnerKey, loserKey, score: roomData.score } });
-          }
+      const winnerKey = roomData.winnerKey;
+      const loserKey = roomData.loserKey;
+
+      if (winnerKey == null && loserKey == null) {
+        console.log("Navegando a empate...");
+        navigate(`/empataste/${roomId}`, { state: { players: roomData.players, score: roomData.score } });
+      } else {
+        const winner = roomData.players[winnerKey];
+        const loser = roomData.players[loserKey];
+
+        if (playerKey === winnerKey) {
+          navigate(`/ganaste/${roomId}`, { state: { winner, loser, winnerKey, loserKey, score: roomData.score } });
+        } else if (playerKey === loserKey) {
+          navigate(`/perdiste/${roomId}`, { state: { winner, loser, winnerKey, loserKey, score: roomData.score } });
         }
+      }
 
-        // Reseteamos el flag para la próxima ronda
+      setTimeout(() => {
         update(ref(database, `rooms/${roomId}`), {
           roundFinished: false,
           winnerKey: null,
           loserKey: null,
         });
-      }
-    });
+        navigated.current = false; // reset para la próxima ronda
+      }, 1000);
+    }
+  });
 
-    return () => unsubscribe();
-  }, [roomId, playerKey, navigate]);
+  return () => unsubscribe();
+}, [roomId, playerKey, navigate]);
 
-  const enviarEleccion = async () => {
+const enviarEleccion = async () => {
+  console.log("enviarEleccion llamado"); // Agrega este log
   if (roundProcessed.current) return;
   roundProcessed.current = true;
 
@@ -84,23 +94,20 @@ const Game = () => {
       const ganador = determinarGanador(p1Choice, p2Choice);
 
       if (ganador === 'Empate') {
-        // Reseteamos choices para sincronizar
         await update(ref(database, `rooms/${roomId}/players/playerOne`), { choice: null });
         await update(ref(database, `rooms/${roomId}/players/playerTwo`), { choice: null });
 
-        // Reseteamos el estado de start a false
-        await update(ref(database, `rooms/${roomId}/players/playerOne`), { start: false });
-        await update(ref(database, `rooms/${roomId}/players/playerTwo`), { start: false });
-
-        // Indicamos que la ronda terminó sin ganador
         await update(ref(database, `rooms/${roomId}`), {
           roundFinished: true,
           winnerKey: null,
           loserKey: null,
         });
 
-        // Navegar a la pantalla de empate
-        navigate(`/empataste/${roomId}`, { state: { players: playersData, score } });
+        // Verificamos que se haya actualizado
+        const updatedRoomData = await get(ref(database, `rooms/${roomId}`));
+        console.log("Datos de la sala actualizados tras empate:", updatedRoomData.val());
+
+        // No navegamos acá, lo hace el useEffect
       } else {
         const winnerKey = ganador === 'Player One gana' ? 'playerOne' : 'playerTwo';
         const loserKey = winnerKey === 'playerOne' ? 'playerTwo' : 'playerOne';
@@ -113,15 +120,12 @@ const Game = () => {
           loserKey,
         });
 
-        // Reseteamos choices para la próxima ronda
         await update(ref(database, `rooms/${roomId}/players/playerOne`), { choice: null });
         await update(ref(database, `rooms/${roomId}/players/playerTwo`), { choice: null });
       }
     }
   } catch (error) {
     console.error("Error en enviarEleccion:", error);
-  } finally {
-    roundProcessed.current = false;
   }
 };
 

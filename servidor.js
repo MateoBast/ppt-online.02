@@ -7,11 +7,11 @@ const { v4: uuidv4 } = require("uuid"); // Asegúrate de instalar la librería c
 const app = express();
 app.use(cors()); // Permití CORS para todas las solicitudes
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "frontend/build")));
+app.use(express.static(path.join(__dirname, "frontend-nuevo/build")));
 
 const PORT = process.env.PORT || 3001;
 
-const serviceAccount = require("./config/firebaseServiceAccountKey.json");
+const serviceAccount = require("./config/pptonline-ed145-firebase-adminsdk-fbsvc-19c33c4843.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://pptonline-ed145-default-rtdb.firebaseio.com",
