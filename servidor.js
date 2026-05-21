@@ -1,8 +1,18 @@
 const express = require("express");
 const admin = require("firebase-admin");
 const path = require("path");
-const cors = require("cors"); // Importá cors
-const { v4: uuidv4 } = require("uuid"); // Asegúrate de instalar la librería con npm install uuid
+const cors = require("cors");
+const { v4: uuidv4 } = require("uuid");
+
+// Inicializá Firebase Admin con tus credenciales
+const serviceAccount = require("./config/pptonline-ed145-firebase-adminsdk-fbsvc-1e86d5d86a.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://pptonline-ed145-default-rtdb.firebaseio.com",
+});
+
+const db = admin.database();
 
 const app = express();
 app.use(cors()); // Permití CORS para todas las solicitudes
@@ -11,14 +21,7 @@ app.use(express.static(path.join(__dirname, "frontend-nuevo/build")));
 
 const PORT = process.env.PORT || 3001;
 
-const serviceAccount = require("./config/pptonline-ed145-firebase-adminsdk-fbsvc-19c33c4843.json");
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://pptonline-ed145-default-rtdb.firebaseio.com",
-});
-
-const db = admin.database();
-
+// Función para generar un ID corto
 function generarShortId(length = 6) {
   const chars =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -29,6 +32,7 @@ function generarShortId(length = 6) {
   return result;
 }
 
+// Ruta para crear una nueva sala
 app.post("/rooms", async (req, res) => {
   const { playerOneName } = req.body;
 
@@ -42,7 +46,7 @@ app.post("/rooms", async (req, res) => {
   const shortId = generarShortId(); // ID corto
 
   const newRoom = {
-    shortId, // guardamos el shortId
+    shortId,
     players: {
       playerOne: {
         idPlayerOne: `${Date.now()}`,
@@ -63,12 +67,13 @@ app.post("/rooms", async (req, res) => {
 
   try {
     await db.ref(`rooms/${roomId}`).set(newRoom);
-    res.status(201).json({ success: true, roomId, shortId }); // devolvemos ambos
+    res.status(201).json({ success: true, roomId, shortId });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 });
 
+// Ruta para obtener una sala por ID corto
 app.get("/rooms/short/:roomId", async (req, res) => {
   const { roomId } = req.params;
 
@@ -95,7 +100,7 @@ app.get("/rooms/short/:roomId", async (req, res) => {
   }
 });
 
-// Ruta para obtener una room por ID
+// Ruta para obtener una sala por ID largo
 app.get("/rooms/:roomId", async (req, res) => {
   const { roomId } = req.params;
 
@@ -113,6 +118,7 @@ app.get("/rooms/:roomId", async (req, res) => {
   }
 });
 
+// Ruta para unirse a una sala
 app.post("/rooms/:roomId/join", async (req, res) => {
   const { roomId } = req.params;
   const { playerName } = req.body;
