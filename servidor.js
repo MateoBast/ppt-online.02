@@ -5,7 +5,7 @@ const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
 
 // Inicializá Firebase Admin con tus credenciales
-const serviceAccount = require("./config/pptonline-ed145-firebase-adminsdk-fbsvc-1e86d5d86a.json");
+const serviceAccount = require("./config/pptonline-ed145-firebase-adminsdk-fbsvc-8f2ed5aa68.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
