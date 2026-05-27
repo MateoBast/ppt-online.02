@@ -3,7 +3,7 @@ const admin = require("firebase-admin");
 const path = require("path");
 const cors = require("cors");
 const { v4: uuidv4 } = require("uuid");
-const admin = require("firebase-admin");
+
 
 const serviceAccount = {
   type: process.env.FIREBASE_TYPE,
